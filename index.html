@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASimVR CSTR Reactor Model</title>
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/x_ite@11.5.10/dist/x_ite.min.js"></script>
+
+    <style>
+        /* Basic styling to make your page look clean and center the model */
+        body { 
+            font-family: Arial, sans-serif;
+            margin: 0; 
+            overflow: hidden; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            min-height: 100vh; 
+            background-color: #f0f0f0; 
+            color: #333;
+        }
+        h1 { 
+            color: #0056b3; 
+            margin-bottom: 20px; 
+            font-size: 2.5em; 
+            text-align: center;
+        }
+        /* Styles for the X3D canvas where your reactor appears */
+        x3d-canvas { 
+            display: block; 
+            width: 800px; /* Adjust width as needed */
+            height: 600px; /* Adjust height as needed */
+            border: 2px solid #007bff; 
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.2); 
+            background-color: white; 
+            border-radius: 8px; 
+        }
+        p { 
+            margin-top: 20px; 
+            color: #555; 
+            font-size: 1.1em; 
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>ASimVR Continuous Stirred Tank Reactor (CSTR) Model</h1>
+
+    <x3d-canvas src="reactor.wrl"></x3d-canvas> 
+
+    <p>This VRML/X3D model is displayed using X_ITE v11.5.10 from jsDelivr CDN.</p>
+
+    <script>
+        // X_ITE triggers this when the 3D scene is ready.
+        document.addEventListener('X3DReady', function() {
+            console.log('X_ITE is loaded and your reactor model should be visible!');
+        });
+
+        // This helps catch any loading errors.
+        document.addEventListener('X3DError', function(event) {
+            console.error('X_ITE encountered an error loading the model:', event.detail);
+            alert('Uh oh! There was a problem loading the 3D model. Check your browser\'s console (F12) for details.');
+        });
+    </script>
+
+</body>
+</html>
